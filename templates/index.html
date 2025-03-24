@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jaro:opsz@6..72&family=Jua&family=Kavoon&display=swap" rel="stylesheet">
+    <title>Weather</title>
+</head>
+<body>
+    <h1>Weather App</h1>
+    <form action="/weather" method="post">
+        <input type="text" id="cityName" placeholder="city" name="cityName">
+        <input type="text" id="stateName" placeholder="state" name="stateName">
+        <input type="text" id="countryName" placeholder="country" name="countryName">
+        <button>Search Weather</button>
+    </form>
+    
+    {% if data %}
+    <div class="weather-info">
+        <p>Temperature: {{ data.temp }}°C</p>
+        <p>Description: {{ data.desc }}</p>
+        <img src="https://openweathermap.org/img/wn/{{ data.icon }}@2x.png" alt="Weather Icon">
+    </div>
+    {% endif %}
+</body>
+</html>
